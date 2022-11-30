@@ -1,0 +1,77 @@
+
+//  Config
+@import 'config';
+
+//  pull in gorko design tokens
+@import '../../node_modules/gorko/gorko.scss';
+
+// Pull modern reset
+@import 'reset';
+
+/* Global Styles */
+
+
+body {
+  line-height: 1.5;
+  overflow-x: hidden;
+  padding: get-size('600') ;
+  // background-color: red;
+
+  @include apply-utility('weight', 'regular');
+  @include apply-utility('font', 'base');
+  @include apply-utility('text', '600');
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  @include apply-utility('measure', 'compact');
+  @include apply-utility('font', 'heading');
+
+}
+
+h1 {
+  font-size: get-size('900');
+}
+
+h2,
+h3 {
+  font-size: get-size('600');
+}
+
+a {
+  color: currentColor;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+:focus {
+  outline: 2px dotted;
+  outline-offset: 0.25rem;
+}
+
+/* Composition */
+.flow > * + * {
+  margin-top:  2em;
+}
+
+.wrapper {
+  max-width: 65rem;
+  margin-inline: auto
+}
+
+/* Utilities */
+@import './utilities/visually-hidden';
+
+
+
+
+/* Blocks */
+/* E */

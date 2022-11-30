@@ -1,0 +1,40 @@
+{
+  "name": "lords-eleventy-starter",
+  "version": "0.0.1",
+  "description": "A clean and simple Eleventy 2 Starter Kit with Vite",
+  "browserslist": [
+    "> 0.5%",
+    "not IE 11"
+  ],
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "npx eleventy --serve",
+    "watch": "npx @11ty/eleventy --watch",
+    "serve": "npx @11ty/eleventy --serve",
+    "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+    "build": "NODE_ENV=production npx eleventy",
+    "clean": "rm -rf ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christoph Heim",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": "https://github.com/iLord-DEV/lords-eleventy-starter.git/issues"
+  },
+  "homepage": "https://github.com/iLord-DEV/lords-eleventy-starter.git#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0-canary.16",
+    "@11ty/eleventy-img": "^2.0.1",
+    "@11ty/eleventy-plugin-vite": "^2.0.0-canary.2",
+    "autoprefixer": "^10.4.12",
+    "gorko": "^0.9.1",
+    "postcss-import": "^15.0.0",
+    "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^7.8.2",
+    "sass": "^1.55.0"
+  }
+}
