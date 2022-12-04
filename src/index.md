@@ -1,6 +1,6 @@
 ---
-title: ' Eleventy Starter 🚀'
-layout: 'layouts/home.html'
+title: '😱🤣'
+layout: 'layouts/home'
 ---
 
-Na
+Na dus

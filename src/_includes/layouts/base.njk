@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    {% include "partials/meta.njk" %}
+<link rel="preload" href="/fonts/montserrat-v25-latin-500.woff"  as="font"  type="font/woff2" crossorigin=""/>
+<style>
+  /**
+   * Font Face
+   */
+   @font-face {
+      font-family: Montserrat;
+      src: url('/fonts/montserrat-v25-latin-500.woff');
+body {
+  font-family: 'Montserrat';
+}
+  }
+</style>
+     <script type="module" src="/js/main.js"></script>
+    <link rel="stylesheet" href="/css/global.scss" />
+    <!--  Get your <head> straight! https://www.youtube.com/watch?v=MHyAOZ45vnU -->
+  </head>
+  <body class="wrapper">
+  <nav>
+    {% for link in navigationLinks %}
+    <a href="{{ link.url }}">
+      {{ link.text }}
+    </a>
+    {% endfor %}
+  </nav>
+    <a href="#main-content" class="visible-hidden">Skip to main content</a>
+
+     {% block content %}{% endblock %}
+  </body>
+</html>
+

@@ -1,6 +1,13 @@
 const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
-const path = require('path')
 const Image = require('@11ty/eleventy-img')
+const EleventyPluginNavigation = require('@11ty/eleventy-navigation')
+const EleventyPluginRss = require('@11ty/eleventy-plugin-rss')
+
+const filters = require('./utils/filters.js')
+const transforms = require('./utils/transforms.js')
+const shortcodes = require('./utils/shortcodes.js')
+
+const path = require('path')
 
 // IMAGE SHORTCODE
 async function imageShortcode(src, alt, sizes) {
@@ -44,6 +51,9 @@ async function imageShortcode(src, alt, sizes) {
 }
 
 module.exports = function (eleventyConfig) {
+  // Plugins
+  eleventyConfig.addPlugin(EleventyPluginNavigation)
+  eleventyConfig.addPlugin(EleventyPluginRss)
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     viteOptions: {
       clearScreen: false,
@@ -93,7 +103,10 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.setServerOptions({
-  showAllHosts:true,}),
+    showAllHosts:true,
+  }),
+
+  // eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   // Passthrough copy
   eleventyConfig.addPassthroughCopy('src/css')
@@ -107,8 +120,26 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidShortcode('image', imageShortcode)
   eleventyConfig.addJavaScriptFunction('image', imageShortcode)
 
+  // Filters
+  Object.keys(filters).forEach((filterName) => {
+    eleventyConfig.addFilter(filterName, filters[filterName])
+  })
+
+  // Transforms
+  Object.keys(transforms).forEach((transformName) => {
+    eleventyConfig.addTransform(transformName, transforms[transformName])
+  })
+  // Shortcodes
+  Object.keys(shortcodes).forEach((shortcodeName) => {
+    eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName])
+  })
+
+eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`)
+
+
+
   return {
-    templateFormats: ['md', 'njk', 'html', 'liquid'],
+    templateFormats: ['md', 'njk'],
     dataTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',
 
@@ -116,8 +147,9 @@ module.exports = function (eleventyConfig) {
       input: 'src',
       output: 'dist',
       includes: '_includes',
-      // layouts: '_layouts',
-      // data: '_data'
+      // layouts: 'layouts',
+      data: '_data'
+
     }
   }
 }

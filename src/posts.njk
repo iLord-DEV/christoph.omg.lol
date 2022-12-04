@@ -1,0 +1,12 @@
+---
+title: 'Posts'
+layout: 'layouts/post.njk'
+permalink: /posts/
+
+---
+
+<div class="container">
+    <h1>{{title}}</h1>
+    {% set postslist = collections.posts %}
+    {% include "layouts/postslist.njk" %}
+</div>
