@@ -1,5 +1,5 @@
 const { DateTime } = require('luxon')
-// Settings.defaultLocale = "fr";
+
 
 module.exports = {
     dateToFormat: function (date, format) {
