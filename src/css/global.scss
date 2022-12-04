@@ -74,4 +74,15 @@ th {
 
 
 /* Blocks */
+nav {
+  ul {display: flex;
+padding-left: 0;
+    li {
+    list-style: none;
+    }
+  }
+  li + li {
+    margin-left: 1em;
+  }
+}
 /* E */

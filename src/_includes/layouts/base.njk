@@ -24,11 +24,12 @@ body {
   </head>
   <body class="wrapper">
   <nav>
-    {% for link in navigationLinks %}
-    <a href="{{ link.url }}">
+    <ul>    {% for link in navigationLinks %}
+    <li><a href="{{ link.url }}">
       {{ link.text }}
-    </a>
+    </a></li>
     {% endfor %}
+    </ul>
   </nav>
     <a href="#main-content" class="visible-hidden">Skip to main content</a>
 

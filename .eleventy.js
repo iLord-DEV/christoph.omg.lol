@@ -136,6 +136,10 @@ module.exports = function (eleventyConfig) {
 
 eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`)
 
+// Layouts
+eleventyConfig.addLayoutAlias('base', 'layouts/base.njk')
+eleventyConfig.addLayoutAlias('post', 'layouts/post.njk')
+
 
 
   return {
